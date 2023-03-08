@@ -14,8 +14,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MainWindowController {
+  
     @FXML
     private TextField tfNombre;
+
+    public Usuario user;
 
     @FXML
     private TextField tfApellidos;
@@ -29,6 +32,9 @@ public class MainWindowController {
     @FXML
     protected void onGuardarButtonClick() throws Exception {
 
+
+        guardar();
+
         try {
 
                 // Cargo la vista
@@ -40,10 +46,25 @@ public class MainWindowController {
                 // Creo el Scene
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
-                stage.setTitle("Estos son tus datos camarada");
+                stage.setTitle("Estos son tus datos");
                 stage.initModality(Modality.APPLICATION_MODAL);
+
+
+                stage.setUserData(user);
+
+
                 stage.setScene(scene);
                 stage.showAndWait();
+
+
+
+
+
+
+                //tfTelefono.setUserData(tfTelefono.getText());*/
+
+
+
 
             } catch (IOException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -55,6 +76,23 @@ public class MainWindowController {
             }
 
         }
+
+
+    @FXML
+    private void guardar() {
+
+        String ape=tfApellidos.getText().trim();
+        String tel=tfTelefono.getText().trim();
+        String nombre=tfNombre.getText().trim();
+
+
+        user =new Usuario(nombre,ape,tel);
+
+
+
+    }
+
+
 
 
 }
