@@ -11,7 +11,7 @@ public class AppLauncher extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(AppLauncher.class.getResource("MainWindow-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 640, 480);
         stage.setTitle("Que pasa mi gente");
         stage.setScene(scene);
         stage.show();
